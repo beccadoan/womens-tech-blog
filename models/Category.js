@@ -11,15 +11,11 @@ Category.init(
           autoIncrement: true
       
       },
-      
-      post_id: {
-          type: DataTypes.INTEGER,
-          allowNull: false,
-          references: {
-              model: 'post',
-              key: 'id'
-          }
-      }
+
+      title: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
   },
     {
       sequelize,
