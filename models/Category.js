@@ -1,23 +1,17 @@
 const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
+const sequelize =  require('../config/connection');
 
-class Mailer extends Model {}
+class Category extends Model {}
 
-Mailer.init(
+Category.init(
     {
       id: {
           type: DataTypes.INTEGER,
           primaryKey: true,
           autoIncrement: true
+      
       },
-      user_id: {
-          type: DataTypes.INTEGER,
-          allowNull: false,
-          references: {
-              model: 'user',
-              key: 'id'
-          }
-      } ,
+      
       post_id: {
           type: DataTypes.INTEGER,
           allowNull: false,
@@ -31,6 +25,8 @@ Mailer.init(
       sequelize,
       freezeTableName: true,
       underscored: true,
-      modelName: 'comment'
+      modelName: 'category'
     }
   );
+  
+  module.exports = Category;
