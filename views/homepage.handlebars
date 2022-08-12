@@ -6,6 +6,12 @@
   <input name="post-title" type="text">
   <label for="post-body">Body</label>
   <input name="post-body" type="text">
+  <label for="categories">Choose a Category:</label>
+  <select name="categories" id="categories">
+     {{#each categories as |category|}}
+    <option value='{{category.id}}'>{{category.title}}</option>
+    {{/each}}
+  </select>
   <button type="submit">Post</button>
 </form>
 {{/if}}
@@ -18,8 +24,9 @@
   {{/each}}
 </ol>
 
-{{#if pageType.home}}
+{{#if homePage}}
 {{#if loggedIn}}
+<h1>Hello</h1>
 <script src="/javascript/newpost.js"></script>
 {{/if}}
 {{/if}}

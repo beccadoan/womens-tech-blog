@@ -7,6 +7,7 @@ router.get('/', (req, res) => {
         'id',
         'body',
         'title',
+        'category_id',
         'created_at'
       ],
       include: [
@@ -29,19 +30,23 @@ router.get('/', (req, res) => {
       ]
     })
       .then(dbPostData => {
-        // pass a single post object into the homepage template
-        const posts = dbPostData.map(post => post.get({ plain: true }));
-        let admin = false;
-        if (req.session.email === 'womenstechblog@admin.com') {
-          admin = true;
-        }
-        res.render('homepage',{ 
-          posts,
-          homePage: true,
-          admin: admin,
-          headline: 'All Posts',
-          loggedIn: req.session.loggedIn 
-        });
+        Category.findAll()
+        .then(dbCategoryData => {
+          const categories = dbCategoryData.map(category => category.get({ plain: true }));
+          const posts = dbPostData.map(post => post.get({ plain: true }));
+          console.log(posts);
+          res.render('homepage',{ 
+            posts,
+            categories,
+            homePage: true,
+            headline: 'All Posts',
+            loggedIn: req.session.loggedIn 
+          });
+        })
+        .catch(err => {
+          console.log(err);
+          res.status(500).json(err);
+        })
       })
       .catch(err => {
         console.log(err);
