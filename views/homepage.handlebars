@@ -1,3 +1,4 @@
+{{if loggedIn}}
 <form class="new-post">
   <label for="post-title">Title</label>
   <input name="post-title" type="text">
@@ -5,7 +6,7 @@
   <input name="post-body" type="text">
   <button type="submit">Post</button>
 </form>
-
+{{/if}}
 <ol class="post-list">
  {{#each posts as |post|}}
   <li>
