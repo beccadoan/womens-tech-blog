@@ -1,3 +1,5 @@
+{{#if pageType.home}}
+<h1>All Posts</h1>
 {{#if loggedIn}}
 <form class="new-post">
   <label for="post-title">Title</label>
@@ -7,6 +9,7 @@
   <button type="submit">Post</button>
 </form>
 {{/if}}
+{{/if}}
 <ol class="post-list">
  {{#each posts as |post|}}
   <li>
@@ -15,4 +18,8 @@
   {{/each}}
 </ol>
 
+{{#if pageType.home}}
+{{#if loggedIn}}
 <script src="/javascript/newpost.js"></script>
+{{/if}}
+{{/if}}

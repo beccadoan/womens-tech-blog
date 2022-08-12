@@ -8,7 +8,7 @@ router.get('/:id', (req, res) => {
       },
       attributes: [
         'id',
-        'post_url',
+        'body',
         'title',
         'created_at'
       ],
@@ -30,8 +30,10 @@ router.get('/:id', (req, res) => {
       .then(dbPostData => {
         // pass a single post object into the homepage template
         const posts = dbPostData.map(post => post.get({ plain: true }));
-        res.render('profile',{ 
+        const user = posts[0].user.username;
+        res.render('homepage',{ 
           posts,
+          username: user,
           pageType: 'user',
           loggedIn: req.session.loggedIn
         });

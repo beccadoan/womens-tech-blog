@@ -6,7 +6,7 @@ const sequelize = require('../../config/connection');
 router.get('/', (req, res) => {
     console.log('=====================');
     Post.findAll({
-        attributes: ['id', 'body', 'title', 'created_at'],
+        attributes: ['id', 'body', 'title', 'user_id', 'created_at'],
         order: [['created_at', 'DESC']],
         include: [
           // include the Comment model here:
@@ -75,7 +75,7 @@ router.post('/',(req, res) => {
     Post.create({
         title: req.body.title,
         body: req.body.body,
-        user_id: req.body.user_id
+        user_id: req.session.user_id
     })
     .then(dbPostData => {res.json(dbPostData)})
     .catch(err => {

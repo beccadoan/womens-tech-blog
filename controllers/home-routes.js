@@ -15,20 +15,27 @@ router.get('/', (req, res) => {
           attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
           include: {
             model: User,
-            attributes: ['username']
+            attributes: ['username', 'id']
           }
         },
         {
           model: User,
-          attributes: ['username']
+          attributes: ['username', 'id']
         }
       ]
     })
       .then(dbPostData => {
         // pass a single post object into the homepage template
         const posts = dbPostData.map(post => post.get({ plain: true }));
+        const pageType = {
+          home: true,
+          profile: false,
+          category: false,
+          favorites: false
+        }
         res.render('homepage',{ 
           posts,
+          pageType,
           loggedIn: req.session.loggedIn 
         });
       })
