@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Post, User, Comment } = require('../models')
+const { Post, User, Comment, Category } = require('../models')
 
 router.get('/:id', (req, res) => {
     Post.findAll({
@@ -24,6 +24,10 @@ router.get('/:id', (req, res) => {
         {
           model: User,
           attributes: ['username', 'id']
+        },
+        {
+          model: Category,
+          attributes: ['title', 'id']
         }
       ]
     })
@@ -31,11 +35,17 @@ router.get('/:id', (req, res) => {
         // pass a single post object into the homepage template
         const posts = dbPostData.map(post => post.get({ plain: true }));
         const user = posts[0].user.username;
+        const pageType = {
+          home: false,
+          profile: true,
+          category: false,
+          favorites: false
+        }
         res.render('homepage',{ 
           posts,
-          username: user,
-          pageType: 'user',
-          loggedIn: req.session.loggedIn
+          pageType,
+          headline: `Viewing ${user}'s profile`,
+          loggedIn: req.session.loggedIn 
         });
       })
       .catch(err => {
