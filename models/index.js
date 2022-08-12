@@ -11,7 +11,8 @@ User.hasMany(Post, {
 User.belongsToMany(Post, {
     through: Favorite,
     as: 'favorite_posts',
-    foreignKey: 'user_id'
+    foreignKey: 'user_id',
+    onDelete: 'SET NULL'
 });
 
 User.hasMany(Favorite, {
@@ -19,21 +20,25 @@ User.hasMany(Favorite, {
 });
 
 User.hasMany(Comment, {
-    foreignKey: 'user_id'
+    foreignKey: 'user_id',
+    onDelete: 'SET NULL'
   });  
 
 Post.belongsTo(User, {
-    foreignKey: 'user_id'
+    foreignKey: 'user_id',
+    onDelete: 'SET NULL'
 });
 
 Post.belongsTo(Category, {
-    foreignKey: 'category_id'
+    foreignKey: 'category_id',
+    onDelete: 'SET NULL'
 })
 
 Post.belongsToMany(User, {
     through: Favorite,
     as: 'favorite_posts',
-    foreignKey: 'post_id'
+    foreignKey: 'post_id',
+    onDelete: 'SET NULL'
 });
 
 Post.hasMany(Favorite, {
@@ -45,21 +50,29 @@ Post.hasMany(Comment, {
   });
 
 Favorite.belongsTo(User, {
-    foreignKey: 'user_id'
+    foreignKey: 'user_id',
+    onDelete: 'SET NULL'
 });
 
 Favorite.belongsTo(Post, {
-    foreignKey: 'post_id'
+    foreignKey: 'post_id',
+    onDelete: 'SET NULL'
 });
 
 Comment.belongsTo(User, {
-    foreignKey: 'user_id'
+    foreignKey: 'user_id',
+    onDelete: 'SET NULL'
   });
   
   Comment.belongsTo(Post, {
-    foreignKey: 'post_id'
+    foreignKey: 'post_id',
+    onDelete: 'SET NULL'
   });
+
+  Category.hasMany(Post, {
+      foreignKey: 'category_id'
+  })
   
 
 
-module.exports = { User, Post, Favorite, Comment };
+module.exports = { User, Post, Favorite, Comment, Category };
