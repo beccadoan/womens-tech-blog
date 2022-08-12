@@ -1,7 +1,26 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Post extends Model {}
+class Post extends Model {
+    static favorite(body, models) {
+        return models.Favorite.create({
+          user_id: body.user_id,
+          post_id: body.post_id
+        }).then(() => {
+          return Post.findOne({
+            where: {
+              id: body.post_id
+            },
+            attributes: [
+              'id',
+              'body',
+              'title',
+              'created_at'
+            ]
+          })
+        })
+      }
+}
 
 Post.init(
     {
@@ -15,17 +34,21 @@ Post.init(
             type: DataTypes.STRING,
             allowNull: false
         },
-        post_url: {
+        body: {
             type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                isURL: true
-            }
+            allowNull: false
         },
         user_id: {
             type: DataTypes.INTEGER,
             references: {
                 model: 'user',
+                key: 'id'
+            }
+        },
+        category_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'category',
                 key: 'id'
             }
         }
