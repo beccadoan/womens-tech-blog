@@ -1,5 +1,6 @@
 const router = require('express').Router();
-const { Post, User, Comment, Category } = require('../models')
+const { Post, User, Comment } = require('../models');
+const categories = require('../utils/categories');
 
 router.get('/', (req, res) => {
     Post.findAll({
@@ -7,7 +8,7 @@ router.get('/', (req, res) => {
         'id',
         'body',
         'title',
-        'category_id',
+        'category_name',
         'created_at'
       ],
       include: [
@@ -22,17 +23,10 @@ router.get('/', (req, res) => {
         {
           model: User,
           attributes: ['username', 'id']
-        }, 
-        {
-          model: Category,
-          attributes: ['title', 'id']
         }
       ]
     })
       .then(dbPostData => {
-        Category.findAll()
-        .then(dbCategoryData => {
-          const categories = dbCategoryData.map(category => category.get({ plain: true }));
           const posts = dbPostData.map(post => post.get({ plain: true }));
           console.log(posts);
           res.render('homepage',{ 
@@ -43,11 +37,6 @@ router.get('/', (req, res) => {
             loggedIn: req.session.loggedIn 
           });
         })
-        .catch(err => {
-          console.log(err);
-          res.status(500).json(err);
-        })
-      })
       .catch(err => {
         console.log(err);
         res.status(500).json(err);

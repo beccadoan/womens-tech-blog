@@ -1,16 +1,18 @@
 const router = require('express').Router();
-const { Post, User, Favorite, Category } = require('../models')
+const { Post, User, Comment } = require('../models')
 
 
-router.get('/:id', (req, res) => {
+router.get('/:name', (req, res) => {
     Post.findAll({
       where: {
-        category_id: req.params.id
+        category_name: req.params.name
       },
       attributes: [
         'id',
-        'post_url',
+        'body',
         'title',
+        'user_id',
+        'category_name',
         'created_at'
       ],
       include: [
@@ -33,7 +35,7 @@ router.get('/:id', (req, res) => {
         const posts = dbPostData.map(post => post.get({ plain: true }));
         res.render('homepage',{ 
           posts,
-          headline: `All posts in category: ${ca}`,
+          headline: `All posts in category: ${posts[0].category_name}`,
           loggedIn: req.session.loggedIn 
         });
       })
