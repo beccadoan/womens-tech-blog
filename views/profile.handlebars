@@ -1,0 +1,8 @@
+<h1>Posts by {{username}}</h1>
+<ol class="post-list">
+ {{#each posts as |post|}}
+  <li>
+    {{> post-info post}}
+  </li>
+  {{/each}}
+</ol>

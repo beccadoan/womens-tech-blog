@@ -1,14 +1,18 @@
 const router = require('express').Router();
+const { Post, User, Comment } = require('../models')
 
-router.get('/:id', (req, res) => {
+
+router.get('/:name', (req, res) => {
     Post.findAll({
       where: {
-        user_id: req.params.id
+        category_name: req.params.name
       },
       attributes: [
         'id',
-        'post_url',
+        'body',
         'title',
+        'user_id',
+        'category_name',
         'created_at'
       ],
       include: [
@@ -29,9 +33,10 @@ router.get('/:id', (req, res) => {
       .then(dbPostData => {
         // pass a single post object into the homepage template
         const posts = dbPostData.map(post => post.get({ plain: true }));
-        res.render('profile',{ 
-          pageType: 'category',
-          posts
+        res.render('homepage',{ 
+          posts,
+          headline: `All posts in category: ${posts[0].category_name}`,
+          loggedIn: req.session.loggedIn 
         });
       })
       .catch(err => {
