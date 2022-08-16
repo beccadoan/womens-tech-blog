@@ -18,10 +18,10 @@ async function main() {
 
     let info = await transporter.sendMail({
         from: '"Womens Tech Blog" <womenstechblog@outlook.com>',
-        to: "womenstechblog@gmail.com",
-        subject: "Contact request",
-        text: "Contact form submitted",
-        html: "<h3>Name: ${name}</h3>"
+        to: `${req.session.email}`,
+        subject: "Check out this post",
+        text: "Here's the post you emailed:",
+        html: `${post.id}`
     });
 
     console.log('Message sent', info.messageId);
