@@ -60,6 +60,7 @@ router.get('/post/:id', (req, res) => {
         'id',
         'body',
         'title',
+        'category_name',
         'created_at'
       ],
       include: [
@@ -68,12 +69,12 @@ router.get('/post/:id', (req, res) => {
           attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
           include: {
             model: User,
-            attributes: ['username']
+            attributes: ['username', 'id']
           }
         },
         {
           model: User,
-          attributes: ['username']
+          attributes: ['username', 'id']
         }
       ]
     })
@@ -97,5 +98,11 @@ router.get('/post/:id', (req, res) => {
         res.status(500).json(err);
       });
 });
+
+router.get('/contact', (req, res) => {
+  res.render('contact-us',{
+    loggedIn: req.session.loggedIn
+  })
+})
 
 module.exports = router;
