@@ -1,11 +1,20 @@
+<h1>{{headline}}</h1>
+{{#if homePage}}
 {{#if loggedIn}}
 <form class="new-post">
   <label for="post-title">Title</label>
   <input name="post-title" type="text">
   <label for="post-body">Body</label>
   <input name="post-body" type="text">
+  <label for="categories">Choose a Category:</label>
+  <select name="categories" id="categories">
+     {{#each categories as |category|}}
+    <option value='{{category}}'>{{category}}</option>
+    {{/each}}
+  </select>
   <button type="submit">Post</button>
 </form>
+{{/if}}
 {{/if}}
 <ol class="post-list">
  {{#each posts as |post|}}
@@ -15,4 +24,9 @@
   {{/each}}
 </ol>
 
+{{#if homePage}}
+{{#if loggedIn}}
+<h1>Hello</h1>
 <script src="/javascript/newpost.js"></script>
+{{/if}}
+{{/if}}
