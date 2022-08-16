@@ -2,7 +2,6 @@ const User = require('./User');
 const Post = require('./Post');
 const Favorite = require('./Favorite');
 const Comment = require('./Comment');
-const Category = require('./Category');
 
 User.hasMany(Post, {
     foreignKey: 'user_id'
@@ -29,10 +28,10 @@ Post.belongsTo(User, {
     onDelete: 'SET NULL'
 });
 
-Post.belongsTo(Category, {
-    foreignKey: 'category_id',
-    onDelete: 'SET NULL'
-})
+// Post.belongsTo(Category, {
+//     foreignKey: 'category_id',
+//     onDelete: 'SET NULL'
+// })
 
 Post.belongsToMany(User, {
     through: Favorite,
@@ -69,10 +68,10 @@ Comment.belongsTo(User, {
     onDelete: 'SET NULL'
   });
 
-  Category.hasMany(Post, {
-      foreignKey: 'category_id'
-  })
+//   Category.hasMany(Post, {
+//       foreignKey: 'category_id'
+//   })
   
 
 
-module.exports = { User, Post, Favorite, Comment, Category };
+module.exports = { User, Post, Favorite, Comment };

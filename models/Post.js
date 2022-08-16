@@ -45,12 +45,9 @@ Post.init(
                 key: 'id'
             }
         },
-        category_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'category',
-                key: 'id'
-            }
+        category_name: {
+            type: DataTypes.STRING,
+            allowNull: false
         }
     },
     {
