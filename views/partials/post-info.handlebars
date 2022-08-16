@@ -4,8 +4,8 @@
         <span>({{body}})</span>
       </div>
       <div class="meta">
-        by {{user.username}} on
-        {{created_at}}
+        by <a href="/profiles/{{user.id}}">{{user.username}}</a> on
+        {{created_at}} in category <a href="/categories/{{category_name}}">{{category_name}}</a>
         |
       </div>
     </article>
