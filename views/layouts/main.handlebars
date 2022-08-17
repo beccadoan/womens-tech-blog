@@ -17,8 +17,8 @@
       <nav>
         <ul>
             <li><a href="/resources">Resources</a></li>
-            <li><a href="/contact">Contact</a></li>
             {{#if loggedIn}}
+            <li><a href="/favorites">Favorites</a></li>
             <li><a href="/profiles/{{user_id}}">Profile</a></li>
             <li><button id="logout" class="btn-no-style">Logout</button></li>
             {{else}}
