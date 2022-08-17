@@ -10,5 +10,9 @@ module.exports = {
         return `${word}s`;
       }
       return word;
+    },
+
+    getUserID: () => {
+      return req.session.user_id
     }
 };

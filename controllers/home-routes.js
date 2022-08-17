@@ -11,6 +11,7 @@ router.get('/', (req, res) => {
         'category_name',
         'created_at'
       ],
+      order: [['created_at', 'DESC']],
       include: [
         {
           model: Comment,
@@ -28,13 +29,13 @@ router.get('/', (req, res) => {
     })
       .then(dbPostData => {
           const posts = dbPostData.map(post => post.get({ plain: true }));
-          console.log(posts);
           res.render('homepage',{ 
             posts,
             categories,
             homePage: true,
             headline: 'All Posts',
-            loggedIn: req.session.loggedIn 
+            loggedIn: req.session.loggedIn,
+            user_id: req.session.user_id 
           });
         })
       .catch(err => {
@@ -49,6 +50,14 @@ router.get('/login', (req, res) => {
         return;
       }
       res.render('login')
+})
+
+router.get('/signup', (req, res) => {
+  if(req.session.loggedIn) {
+    res.redirect('/');
+    return;
+  }
+  res.render('signup')
 })
 
 router.get('/post/:id', (req, res) => {
@@ -90,7 +99,8 @@ router.get('/post/:id', (req, res) => {
         // pass data to template
         res.render('single-post', { 
           post,
-          loggedIn: req.session.loggedIn
+          loggedIn: req.session.loggedIn,
+          user_id: req.session.user_id
         });
       })
       .catch(err => {
@@ -101,13 +111,15 @@ router.get('/post/:id', (req, res) => {
 
 router.get('/contact', (req, res) => {
   res.render('contact-us',{
-    loggedIn: req.session.loggedIn
+    loggedIn: req.session.loggedIn,
+    user_id: req.session.user_id
   })
 });
 
 router.get('/resources', (req, res) => {
   res.render('resources',{
-    loggedIn: req.session.loggedIn
+    loggedIn: req.session.loggedIn,
+    user_id: req.session.user_id
   })
 });
 

@@ -11,15 +11,20 @@
 <body>
   <div class="wrapper">
     <header>
-      <h1>
-        <a href="/">Women's tech forum</a>
-      </h1>
+          <h5>
+          <a href="/">Women's Tech Forum</a>
+          </h5>
       <nav>
-        {{#if loggedIn}}
-        <button id="logout" class="btn-no-style">logout</button>
-        {{else}}
-        <a href="/login">login</a>
-        {{/if}}
+        <ul>
+            <li><a href="/resources">Resources</a></li>
+            {{#if loggedIn}}
+            <li><a href="/favorites">Favorites</a></li>
+            <li><a href="/profiles/{{user_id}}">Profile</a></li>
+            <li><button id="logout" class="btn-no-style">Logout</button></li>
+            {{else}}
+            <li><a href="/login">Login</a></li>
+            {{/if}}
+        </ul>
       </nav>
     </header>
     <main>
