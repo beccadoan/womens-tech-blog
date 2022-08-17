@@ -11,15 +11,24 @@
 <body>
   <div class="wrapper">
     <header>
-      <h1>
-        <a href="/">Women's tech forum</a>
-      </h1>
       <nav>
-        {{#if loggedIn}}
+        <ul>
+          <div class="flex-container">
+          <div class="homenav">
+          <li id="homenav"><a href="/">Women's Tech Forum</a></li>
+          </div>
+          <div class="othernav">
+          <li><a href="news.asp">News</a></li>
+          <li><a href="contact.asp">Contact</a></li>
+          <li><a href="about.asp">About</a></li>
+          </div>
+          </div>
+      </ul>
+        {{!-- {{#if loggedIn}}
         <button id="logout" class="btn-no-style">logout</button>
         {{else}}
         <a href="/login">login</a>
-        {{/if}}
+        {{/if}} --}}
       </nav>
     </header>
     <main>

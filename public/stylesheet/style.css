@@ -5,8 +5,31 @@ body, html {
     margin: 0;
     padding: 20px;
     text-align: left;
-    font: 75% arial, tahoma, "Trebuchet MS", verdana, arial, verdana, sans-serif;
+    font: 100% arial, tahoma, "Trebuchet MS", verdana, arial, verdana, sans-serif;
 }
+
+.flex-container {
+  display: flex;
+  align-content: space-between;
+}
+nav {
+  background-color:  #6A9662;
+  font-size: 30px;;
+}
+
+nav ul {
+    list-style-type: none;
+    /* margin: 0;
+    padding: 20px; */
+}
+
+/* .homenav {
+  align-items: left;
+}
+
+.othernav {
+  align-items: right;
+} */
 
 a {
     text-decoration: none;
@@ -36,8 +59,8 @@ button:hover {
   }
   
 h1 {
-    width: 30%;
-    font-size: 200%;
+    /* width: 30%; */
+    /* font-size: 200%; */
     letter-spacing: 5px;
     color:#6A9662;
     background: #fff;
@@ -103,7 +126,6 @@ h4 {
 .wrapper {
     width: 100%;
     min-height: 100%;
-    max-width: 1200px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -180,7 +202,7 @@ h4 {
     border-left: 1px dashed #333;
     border-right: 1px dashed #333;
     color: #555;
-    background-color: #fff;
+    /* background-color: #fff; */
     }
     
             /* ARTICLES
