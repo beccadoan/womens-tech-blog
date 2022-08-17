@@ -103,6 +103,12 @@ router.get('/contact', (req, res) => {
   res.render('contact-us',{
     loggedIn: req.session.loggedIn
   })
-})
+});
+
+router.get('/resources', (req, res) => {
+  res.render('resources',{
+    loggedIn: req.session.loggedIn
+  })
+});
 
 module.exports = router;
