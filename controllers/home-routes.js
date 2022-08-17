@@ -34,7 +34,8 @@ router.get('/', (req, res) => {
             categories,
             homePage: true,
             headline: 'All Posts',
-            loggedIn: req.session.loggedIn 
+            loggedIn: req.session.loggedIn,
+            user_id: req.session.user_id 
           });
         })
       .catch(err => {
@@ -90,7 +91,8 @@ router.get('/post/:id', (req, res) => {
         // pass data to template
         res.render('single-post', { 
           post,
-          loggedIn: req.session.loggedIn
+          loggedIn: req.session.loggedIn,
+          user_id: req.session.user_id
         });
       })
       .catch(err => {
@@ -101,13 +103,15 @@ router.get('/post/:id', (req, res) => {
 
 router.get('/contact', (req, res) => {
   res.render('contact-us',{
-    loggedIn: req.session.loggedIn
+    loggedIn: req.session.loggedIn,
+    user_id: req.session.user_id
   })
 });
 
 router.get('/resources', (req, res) => {
   res.render('resources',{
-    loggedIn: req.session.loggedIn
+    loggedIn: req.session.loggedIn,
+    user_id: req.session.user_id
   })
 });
 

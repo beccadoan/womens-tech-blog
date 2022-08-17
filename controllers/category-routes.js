@@ -36,7 +36,8 @@ router.get('/:name', (req, res) => {
         res.render('homepage',{ 
           posts,
           headline: `All posts in category: ${posts[0].category_name}`,
-          loggedIn: req.session.loggedIn 
+          loggedIn: req.session.loggedIn ,
+          user_id: req.session.user_id
         });
       })
       .catch(err => {

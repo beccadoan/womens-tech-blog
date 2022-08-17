@@ -32,11 +32,11 @@ router.get('/', (req, res) => {
     .then(dbUserData => {
         // pass a single post object into the homepage template
         const user = dbUserData.get({ plain: true });
-        console.log(user);
         res.render('homepage',{ 
           posts: user.favorite_posts,
           headline: 'Your favorite posts',
-          loggedIn: req.session.loggedIn 
+          loggedIn: req.session.loggedIn,
+          user_id: req.session.user_id 
         });
       })
     .catch(err => {

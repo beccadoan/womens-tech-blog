@@ -11,24 +11,20 @@
 <body>
   <div class="wrapper">
     <header>
+          <h5>
+          <a href="/">Women's Tech Forum</a>
+          </h5>
       <nav>
         <ul>
-          <div class="flex-container">
-          <div class="homenav">
-          <li id="homenav"><a href="/">Women's Tech Forum</a></li>
-          </div>
-          <div class="othernav">
-          <li><a href="news.asp">News</a></li>
-          <li><a href="contact.asp">Contact</a></li>
-          <li><a href="about.asp">About</a></li>
-          </div>
-          </div>
-      </ul>
-        {{!-- {{#if loggedIn}}
-        <button id="logout" class="btn-no-style">logout</button>
-        {{else}}
-        <a href="/login">login</a>
-        {{/if}} --}}
+            <li><a href="/resources">Resources</a></li>
+            <li><a href="/contact">Contact</a></li>
+            {{#if loggedIn}}
+            <li><a href="/profiles/{{user_id}}">Profile</a></li>
+            <li><button id="logout" class="btn-no-style">Logout</button></li>
+            {{else}}
+            <li><a href="/login">Login</a></li>
+            {{/if}}
+        </ul>
       </nav>
     </header>
     <main>
