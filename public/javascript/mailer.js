@@ -1,27 +1,25 @@
-const nodemailer = require('nodemailer');
 
-async function main() {
-    let testAccount = await
-    nodemailer.createTestAccount();
 
-    let transporter = nodemailer.createTransport({
-        host: "smtp.ethereal.email",
-        port: 587,
-        secure: false,
-        auth: {
-            user: testAccount.user,
-            pass: testAccount.pass
-        },
+async function mailInfo(event) {
+    event.preventDefault();
+
+    const username = document.querySelector('#users-name').value.trim();
+    const email = document.querySelector('#users-email').value.trim();
+    const message = document.querySelector('#users-message').value.trim();
+    const response = await fetch('/api/users/contact', {
+      method: 'post',
+      body: JSON.stringify({
+        username,
+        email,
+        message
+      }),
+      headers: { 'Content-Type': 'application/json' }
     });
+  
+    if (response.ok) {
+    } else {
+      alert(response.statusText);
+    }
+  }
 
-    let info = await transporter.sendMail({
-        from: '"Cait" <cait@example.com>',
-        to: "becca@example.com",
-        subject: "Hello",
-        text: "Hello world"
-    });
-
-    console.log('Message sent', info.messageId);
-}
-
-main().catch(console.error);
+document.querySelector('.contact-us').addEventListener('submit', mailInfo);
