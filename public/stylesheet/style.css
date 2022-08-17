@@ -6,15 +6,16 @@ main {
   padding: 20px;
 }
 
+ol, #logout {
+  all: unset;
+}
+
 body, html {
     height: 100%;
     margin: 0;
     padding: 0px;
     text-align: left;
     font: 100% arial, tahoma, "Trebuchet MS", verdana, arial, verdana, sans-serif;
-}
-#logout {
-  all: unset
 }
 
 header {
@@ -98,7 +99,7 @@ header nav ul li a:hover, #logout:hover {
   
 button:not(#logout) {
     background-color: #476042;
-    margin: 16px;
+    /* margin: 16px; */
     border: 2px;
     padding: 1%;
     color: white;
@@ -141,9 +142,6 @@ h4 {
     }  
 
 .post-list {
-    margin: 0px;
-    padding: 0;
-    width: 80%;
     list-style-type: none;
   } 
   
@@ -238,6 +236,12 @@ h4 {
     /* margin-bottom: 8%; */
     line-height: 150%;
     font-style: italic;
+    padding: 0;
+    margin: 0;
+  }
+
+  .post-body {
+    font-style: normal;
   }
   
   .post .title span {
@@ -279,12 +283,46 @@ h4 {
     opacity: .6;
   }
   
-  .new-post input {
-    width: 300px;
+  #form-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding-top: 5px;
   }
-  .new-post input {
-    width: 300px;
+
+  .new-post input, .new-post textarea {
+    width: 80vw;
   }
+
+  .new-post-title {
+    text-align: center;
+  }
+
+  #post-row {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+
+  #submit-post {
+    width: 32vw;
+    padding: 0;
+    margin: 0;
+  }
+
+  .category-selection {
+    display: flex;
+    align-items: center;
+  }
+
+  .input-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
   .categories {
     margin-bottom: 5%;
   }
@@ -316,6 +354,14 @@ h4 {
     footer  a:hover {
     color: #fff;
     background-color:#476042;
+    }
+
+    .post {
+      /* margin-bottom: 8%; */
+      line-height: 150%;
+      font-style: italic;
+      padding: 0;
+      margin: 0;
     }
     
             /* LINKS
@@ -567,5 +613,18 @@ header nav ul {
 
 header nav ul li a, #logout {
     font-size: 19px;
+}
+
+#submit-post {
+  width: 80vw;
+  margin-top: 10px;
+}
+
+#post-row {
+  justify-content: center;
+}
+
+#form-container {
+  justify-content: center;
 }
 }

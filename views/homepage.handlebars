@@ -1,21 +1,41 @@
 <h1>{{headline}}</h1>
 {{#if homePage}}
 {{#if loggedIn}}
-<form class="new-post">
-  <label for="post-title">Title</label>
-  <input name="post-title" type="text">
-  <label for="post-body">Body</label>
-  <input name="post-body" type="text">
-  <label for="categories">Choose a Category:</label>
-  <select name="categories" id="categories">
-     {{#each categories as |category|}}
-    <option value='{{category}}'>{{category}}</option>
-    {{/each}}
-  </select><br>
-  <button type="submit">Post</button>
-</form>
-{{/if}}
-{{/if}}
+<div id="form-container">
+  <form class="new-post">
+    <h1 class="new-post-title">NEW POST</h1>
+    <div class="input-items">
+    <div class="title-row">
+    <label for="post-title">Title</label>
+    <br>
+    <input name="post-title" type="text">
+    <br>
+    </div>
+    <div class="body-row">
+    <label for="post-body">Body</label>
+    <br>
+    <textarea name="post-body" type="text"></textarea>
+    </div>
+    <br>
+    </div>
+    <div id="post-row">
+    <div class="category-selection">
+    <label for="categories">Choose a Category:&nbsp;&nbsp;</label>
+    <select name="categories" id="categories">
+      {{#each categories as |category|}}
+      <option value='{{category}}'>{{category}}</option>
+      {{/each}}
+    </select>
+    </div>
+    <div class="">
+    <button type="submit" id="submit-post">Post</button>
+    </div>
+    </div>
+  </form>
+  </div>
+  {{/if}}
+  {{/if}}
+
 <ol class="post-list">
  {{#each posts as |post|}}
   <li>
