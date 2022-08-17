@@ -15,6 +15,7 @@ router.get('/:name', (req, res) => {
         'category_name',
         'created_at'
       ],
+      order: [['created_at', 'DESC']],
       include: [
         {
           model: Comment,
@@ -35,8 +36,9 @@ router.get('/:name', (req, res) => {
         const posts = dbPostData.map(post => post.get({ plain: true }));
         res.render('homepage',{ 
           posts,
-          headline: `All posts in category: ${posts[0].category_name}`,
-          loggedIn: req.session.loggedIn 
+          headline: `All posts in category: ${req.params.name}`,
+          loggedIn: req.session.loggedIn ,
+          user_id: req.session.user_id
         });
       })
       .catch(err => {
