@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { User, Post, Favorite, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
+const nodemailer = require('nodemailer')
 
 router.get('/', (req, res) => {
     User.findAll({
@@ -26,7 +27,7 @@ router.get('/:id', (req, res) => {
         include: [
             {
                 model: Post,
-                attributes: ['id', 'title', 'post_url', 'created_at']
+                attributes: ['id', 'title', 'body', 'created_at'],
             },
             {
                 model: Comment,
@@ -40,7 +41,7 @@ router.get('/:id', (req, res) => {
                 model: Post,
                 attributes: ['title'],
                 through: Favorite,
-                as: 'favorited_posts'
+                as: 'favorite_posts'
             }
 
         ]
@@ -155,6 +156,35 @@ router.delete('/:id', withAuth, (req, res) => {
         console.log(err);
         res.status(500).json(err)
     })
+})
+
+router.post('/contact', async function(req, res) {
+
+    const transporter = nodemailer.createTransport({
+        host: "smtp.office365.com",
+        port: 587,
+        secure: false,
+        auth: {
+            user: "womenstechblog@outlook.com",
+            pass: process.env.OU_PW
+        },
+        tls: {
+            rejectUnauthorized: false
+        }
+    });
+        let info = await transporter.sendMail({
+            from: '"Womens Tech Blog" <womenstechblog@outlook.com>',
+            to: "womenstechblog@outlook.com",
+            subject: `${req.body.username} sent a message`,
+            text: "message received",
+            html: `<div>
+            <p>Name: ${req.body.username}</p>
+            <p>Email: ${req.body.email}</p>
+            <p>Message: ${req.body.message}</p>
+            </div>`
+        });
+    
+        console.log('Message sent', info.messageId);
 })
 
 module.exports = router;
