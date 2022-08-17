@@ -35,7 +35,7 @@ router.get('/:name', (req, res) => {
         const posts = dbPostData.map(post => post.get({ plain: true }));
         res.render('homepage',{ 
           posts,
-          headline: `All posts in category: ${posts[0].category_name}`,
+          headline: `All posts in category: ${req.params.name}`,
           loggedIn: req.session.loggedIn ,
           user_id: req.session.user_id
         });

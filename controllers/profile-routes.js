@@ -32,14 +32,27 @@ router.get('/:id', (req, res) => {
       .then(dbPostData => {
         // pass a single post object into the homepage template
         const posts = dbPostData.map(post => post.get({ plain: true }));
-        const user = posts[0].user.username;
+        User.findOne({
+          attributes: { exclude: ['password'] },
+          where: {
+              id: req.params.id
+          }
+        }).then(userData => {
+          let user;
+          try {
+            user = userData.get({plain: true})
+          } catch {
+            user = 'user does not exist'
+          } 
+        console.log(posts);
         res.render('homepage',{ 
           posts,
           categories,
-          headline: `Viewing ${user}'s profile`,
+          headline: `Viewing ${user.username}'s profile`,
           loggedIn: req.session.loggedIn,
           user_id: req.session.user_id
         });
+      })
       })
       .catch(err => {
         console.log(err);

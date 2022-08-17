@@ -4,6 +4,7 @@
 
 main {
   padding: 20px;
+  margin-bottom: 20px;
 }
 
 ol, #logout {
@@ -323,6 +324,33 @@ h4 {
     justify-content: center;
   }
 
+  .login-form {
+    border: 2px solid black;
+    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 50px;
+    margin-left: 250px;
+    margin-right: 250px;
+    justify-content: center;
+  }
+
+  .login-form div {
+    display: flex;
+    flex-wrap: wrap;
+    width: 60vw;
+    justify-content: center;
+  }
+
+  .login-form h1 {
+    text-align: center;
+    width: 60vw;
+  }
+
+  .login-form button {
+    width: 300px;
+  }
+
   .categories {
     margin-bottom: 5%;
   }
@@ -591,6 +619,11 @@ h4 {
     padding-bottom: 0;
     justify-content: space-around;
 }
+
+.login-form {
+  margin-left: 50px;
+  margin-right: 50px;
+}
 }                  
 
 @media screen and (max-width: 575px) {   
@@ -626,5 +659,10 @@ header nav ul li a, #logout {
 
 #form-container {
   justify-content: center;
+}
+
+.login-form {
+  margin-left: 20px;
+  margin-right: 20px;
 }
 }
