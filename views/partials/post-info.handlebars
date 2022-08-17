@@ -5,7 +5,8 @@
       </div>
       <div class="meta">
         by <a href="/profiles/{{user.id}}">{{user.username}}</a> on
-        {{created_at}} in category <a href="/categories/{{category_name}}">{{category_name}}</a>
+        {{format_date created_at}} in category <a href="/categories/{{category_name}}">{{category_name}}</a>
         |
+        <a href="/post/{{id}}">{{comments.length}} {{format_plural 'comment' comments.length}}</a>
       </div>
     </article>

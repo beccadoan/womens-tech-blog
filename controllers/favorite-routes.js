@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Post, User, Favorite, Category } = require('../models')
+const { Post, User, Favorite, Comment } = require('../models')
 
 router.get('/', (req, res) => {
     User.findOne({
@@ -11,17 +11,31 @@ router.get('/', (req, res) => {
             {
                 model: Post,
                 through: Favorite,
-                as: 'favorited_posts'
-            }
-
+                as: 'favorite_posts',
+                attributes: ['title', 'id', 'body', 'created_at'],
+                include: [
+                {
+                    model: Comment,
+                    attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+                    include: {
+                      model: User,
+                      attributes: ['username', 'id']
+                    }
+                  },
+                  {
+                    model: User,
+                    attributes: ['username', 'id']
+                  }
         ]
+        }]
     })
     .then(dbUserData => {
         // pass a single post object into the homepage template
-        const user = dbUserData.map(user => user.get({ plain: true }));
-        res.render('profile',{ 
-          posts: user.post,
-          header: 'Your favorite posts',
+        const user = dbUserData.get({ plain: true });
+        console.log(user);
+        res.render('homepage',{ 
+          posts: user.favorite_posts,
+          headline: 'Your favorite posts',
           loggedIn: req.session.loggedIn 
         });
       })
