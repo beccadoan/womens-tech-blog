@@ -351,6 +351,15 @@ h4 {
     width: 300px;
   }
 
+  .contact-us p {
+    color: #476042;
+  }
+
+  .contact-us h1 {
+    margin: 0;
+    margin-top: 10px;
+  }
+
   .categories {
     margin-bottom: 5%;
   }

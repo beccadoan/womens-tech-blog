@@ -15,6 +15,7 @@ router.get('/:name', (req, res) => {
         'category_name',
         'created_at'
       ],
+      order: [['created_at', 'DESC']],
       include: [
         {
           model: Comment,

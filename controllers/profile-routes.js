@@ -7,6 +7,7 @@ router.get('/:id', (req, res) => {
       where: {
         user_id: req.params.id
       },
+      order: [['created_at', 'DESC']],
       attributes: [
         'id',
         'body',
@@ -44,7 +45,6 @@ router.get('/:id', (req, res) => {
           } catch {
             user = 'user does not exist'
           } 
-        console.log(posts);
         res.render('homepage',{ 
           posts,
           categories,

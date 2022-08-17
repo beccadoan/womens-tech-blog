@@ -13,6 +13,7 @@ router.get('/', (req, res) => {
                 through: Favorite,
                 as: 'favorite_posts',
                 attributes: ['title', 'id', 'body', 'created_at'],
+                order: [['created_at', 'DESC']],
                 include: [
                 {
                     model: Comment,

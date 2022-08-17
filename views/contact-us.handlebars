@@ -1,11 +1,23 @@
-<form class="contact-us">
-  <label for="users-name">Your Name</label>
-  <input name="users-name" type="text" id="users-name">
-  <label for="users-email">Your Email</label>
-  <input name="users-email" type="text" id="users-email">
-  <label for="users-message">Any Comments or Concerns?</label>
-  <input name="users-message" type="text" id="users-message">
-  <button type="submit">Submit</button>
+<form class="contact-us login-form">
+  <h1>Contact Us</h1>
+  <p>Please fill out this form with any comments or concerns:</p>
+  <div>
+    <label for="users-name">Name:&nbsp;&nbsp;</label>
+    <input name="users-name" type="text" id="users-name">
+  </div>
+  <div>
+    <label for="users-email">Email:&nbsp;&nbsp;</label>
+    <input name="users-email" type="text" id="users-email">
+  </div>
+  <div>
+    <label for="users-message">Any Comments or Concerns?</label>
+  </div>
+  <div>
+    <textarea name="users-message" type="text" id="users-message"></textarea>
+  </div>
+  <div>
+    <button type="submit">Send Message</button>
+  </div>
 </form>
 <script src="/javascript/mailer.js"></script>
 
