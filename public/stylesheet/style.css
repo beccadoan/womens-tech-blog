@@ -5,7 +5,6 @@
 main {
   padding: 20px;
   margin-bottom: 20px;
-  margin-left: 300px;
 }
 
 
@@ -166,6 +165,14 @@ h4 {
     margin-bottom: 2%;
     font-style: italic;
   }
+
+  .title-input {
+    margin: auto;
+  }
+
+  .body-input {
+    margin: auto;
+  }
   
   form > div {
     margin-bottom: 2%;
@@ -296,7 +303,27 @@ h4 {
     width: 50vw;
   }
 
+.form-inputs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
 
+.title-inputs {
+  width: 60%;
+}
+
+.body-inputs {
+  width: 60%;
+}
+
+#post-title {
+  width: 100%;
+}
+
+#post-body {
+  width: 100%;
+}
 
   /* .new-post input, .new-post textarea {
     width: 80vw;
@@ -313,7 +340,7 @@ h4 {
   }
 
   #submit-post {
-    /* width: 32vw; */
+    width: 30%;
     padding: 0;
     margin: 0;
   }

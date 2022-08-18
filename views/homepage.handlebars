@@ -3,21 +3,29 @@
 <div id="form-container">
   <form class="new-post">
     <h1 class="new-post-title">NEW POST</h1>
+    <div class="form-inputs">
+      <div class="title-inputs">
         <label for="post-title">Title</label>
         <br>
-        <input name="post-title" type="text">
+        <input name="post-title" type="text" id="post-title">
         <br>
+      </div>
+      <div class="body-inputs">
         <label for="post-body">Body</label>
         <br>
-        <textarea name="post-body" type="text"></textarea>
+        <textarea name="post-body" type="text" id="post-body"></textarea>
       <br>
+      </div>
+    </div>
     <div id="post-row">
-        <label for="categories">Choose a Category:&nbsp;&nbsp;</label>
+      <div class="category-choices">
+        <label for="categories">Choose a Category:&nbsp;</label>
         <select name="categories" id="categories">
           {{#each categories as |category|}}
           <option value='{{category}}'>{{category}}</option>
           {{/each}}
         </select>
+      </div>
       <button type="submit" id="submit-post">Post</button>
     </div>
   </form>
