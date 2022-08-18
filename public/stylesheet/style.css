@@ -87,7 +87,7 @@ button:not(#logout):hover {
 }
 
 
-ol, #logout {
+ol, #logout, .dropbtn {
   all: unset;
 }
 
@@ -141,6 +141,7 @@ nav ul {
   letter-spacing: 3px;
   color: #fff;
   background: #476042;
+  height: 60px;
   flex-wrap: wrap;
   position: -webkit-sticky;
   position: sticky;
@@ -151,7 +152,7 @@ nav ul {
   margin: 0;
   display: inline;
   }
-  #navlist li a {
+  #navlist li a, .dropdown {
   padding: 5px .75em;
   margin: 0;
   color: #fff;
@@ -174,6 +175,111 @@ nav ul {
   background:#6A9662;
   }
 
+
+a {
+    text-decoration: none;
+    color: #F17C0B;
+    background-color: #fff;
+    }
+a:hover, #logout:hover, .dropbtn:hover {
+    text-decoration:underline;
+    color: #666;
+    background-color:#fff;
+    }
+
+header a, #logout, .dropbtn {
+    text-decoration: none;
+    color: #fff;
+    background-color: #6A9662;
+}
+
+header a:hover, #logout:hover, .dropbtn:hover {
+  color: #fff;
+  background-color: #476042;
+}
+
+header h5 {
+padding-top: 5px;
+}
+
+header h5 a {
+  font-weight: bold;
+  font-size: 36px;
+  margin: 0;
+  background-color: #6A9662;
+  color: #fff;
+}
+
+header h5 a:hover {
+  background-color: #6A9662
+}
+
+header nav {
+  display: flex;
+  align-items: center;
+}
+header nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    padding-right: 20px;
+}
+
+
+header nav ul li a, #logout, .dropbtn {
+    padding: 10px 15px;
+    font-weight: lighter;
+    font-size: 1.55vw;
+}
+
+header nav ul li a:hover, #logout:hover, .dropbtn:hover {
+    border-radius: 15px;
+}
+
+.dropdown .dropbtn {
+  float: left;
+  background-color: inherit;
+  font-family: inherit; 
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+  
+button:not(#logout):not(.dropbtn) {
+    background-color: #476042;
+    /* margin: 16px; */
+    border: 2px;
+    padding: 1%;
+    color: white;
+    font-weight: bold;
+    transition: background-color .1s;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+button:not(#logout):not(.dropbtn):hover {
+    background-color: #3486eb;
+  }
+  
 
 h1 {
     font-size: 200%;
@@ -411,15 +517,20 @@ h5 {
     display: flex;
     flex-wrap: wrap;
     margin-top: 50px;
-    margin-left: 250px;
-    margin-right: 250px;
+    justify-content: center;
+    width: 500px;
+  }
+
+  .login-form-container {
+    margin: auto;
+    display: flex;
     justify-content: center;
   }
 
   .login-form div {
     display: flex;
     flex-wrap: wrap;
-    width: 60vw;
+    width: 60%;
     justify-content: center;
   }
 
@@ -695,7 +806,7 @@ h5 {
       font-size: 25px;
   }
 
-  header nav ul li a,  #logout {
+  header nav ul li a,  #logout, .dropbtn {
       font-size: 20px;
   }
 
@@ -728,7 +839,7 @@ header nav ul {
     justify-content: center;
 }
 
-header nav ul li a, #logout {
+header nav ul li a, #logout, .dropbtn {
     font-size: 19px;
 }
 

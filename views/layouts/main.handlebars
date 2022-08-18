@@ -34,6 +34,15 @@
         <li>
           <button id="logout" class="btn-log-in-out">Logout</button>
         </li>
+        <li class="dropdown">  
+              <button class="dropbtn">Categories
+              </button>
+              <div class="dropdown-content">
+                {{#each (getCategories)}}
+                <a href="/categories/{{this}}">{{this}}</a>
+                {{/each}}
+            </div>
+        </li>
             {{else}}
         <li><a href="/login">Login</a></li>
             {{/if}}
