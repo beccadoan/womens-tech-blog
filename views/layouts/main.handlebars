@@ -9,25 +9,43 @@
 </head>
 
 <body>
-  <div class="wrapper">
+  <div id="container">
     <header>
-          <h5>
-          <a href="/">Women's Tech Forum</a>
-          </h5>
-      <nav>
-        <ul>
-            <li><a href="/resources">Resources</a></li>
-            {{#if loggedIn}}
-            <li><a href="/favorites">Favorites</a></li>
-            <li><a href="/profiles/{{user_id}}">Profile</a></li>
-            <li><button id="logout" class="btn-no-style">Logout</button></li>
-            {{else}}
-            <li><a href="/login">Login</a></li>
-            {{/if}}
-        </ul>
-      </nav>
+      <h5>
+        <a href="/">Women's Tech Forum</a>
+      </h5>
     </header>
-    <main>
+
+    {{!-- NAVBAR --}}
+    <ul id="navlist">
+        <li id="active">
+          <a id="current" href="/">Home</a>
+        </li>
+        <li>
+          <a href="/resources">Resources</a>
+        </li>
+            {{#if loggedIn}}
+        <li>
+          <a href="/favorites">Favorites</a>
+        </li>
+        <li>
+          <a href="/profiles/{{user_id}}">Profile</a>
+        </li>
+        <li>
+          <button id="logout" class="btn-no-style">Logout</button>
+        </li>
+            {{else}}
+        <li><a href="/login">Login</a></li>
+            {{/if}}
+    </ul>
+
+    {{!-- SIDEBAR --}}
+    <div id="sidebar-a">
+      <h2><a href="/resources">Resources</a></h2>
+    </div>
+
+    
+    <main id="content">
       {{{ body }}}
     </main>
     <footer>

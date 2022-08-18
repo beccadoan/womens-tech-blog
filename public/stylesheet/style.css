@@ -7,6 +7,8 @@ main {
   margin-bottom: 20px;
 }
 
+
+
 ol, #logout {
   all: unset;
 }
@@ -219,6 +221,14 @@ h4 {
     margin-bottom: 2%;
     font-style: italic;
   }
+
+  .title-input {
+    margin: auto;
+  }
+
+  .body-input {
+    margin: auto;
+  }
   
   form > div {
     margin-bottom: 2%;
@@ -317,17 +327,39 @@ h4 {
   }
   
   #form-container {
-    display: flex;
-    flex-wrap: wrap;
+    margin:auto;
     justify-content: center;
     border: 2px solid black;
     border-radius: 10px;
     padding-top: 5px;
+    width: 50vw;
   }
 
-  .new-post input, .new-post textarea {
+.form-inputs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.title-inputs {
+  width: 60%;
+}
+
+.body-inputs {
+  width: 60%;
+}
+
+#post-title {
+  width: 100%;
+}
+
+#post-body {
+  width: 100%;
+}
+
+  /* .new-post input, .new-post textarea {
     width: 80vw;
-  }
+  } */
 
   .new-post-title {
     text-align: center;
@@ -340,7 +372,7 @@ h4 {
   }
 
   #submit-post {
-    width: 32vw;
+    width: 30%;
     padding: 0;
     margin: 0;
   }
@@ -682,7 +714,7 @@ header nav ul li a, #logout {
 }
 
 #submit-post {
-  width: 80vw;
+  /* width: 80vw; */
   margin-top: 10px;
 }
 
