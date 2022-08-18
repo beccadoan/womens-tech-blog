@@ -7,6 +7,84 @@ main {
   margin-bottom: 20px;
 }
 
+a {
+  text-decoration: none;
+  color: #F17C0B;
+  background-color: #fff;
+  }
+a:hover, #logout:hover {
+  text-decoration:underline;
+  color: #666;
+  background-color:#fff;
+  }
+
+header a, #logout {
+  text-decoration: none;
+  color: #fff;
+  background-color: #6A9662;
+}
+
+header a:hover, #logout:hover {
+color: #fff;
+background-color: #476042;
+}
+
+header h5 {
+padding-top: 5px;
+}
+
+header h5 a {
+font-weight: bold;
+font-size: 36px;
+margin: 0;
+background-color: #6A9662;
+color: #fff;
+}
+
+header h5 a:hover {
+background-color: #6A9662
+}
+
+header nav {
+display: flex;
+align-items: center;
+}
+header nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  padding-right: 20px;
+}
+
+
+header nav ul li a, #logout {
+  padding: 10px 15px;
+  font-weight: lighter;
+  font-size: 1.55vw;
+}
+
+header nav ul li a:hover, #logout:hover {
+  border-radius: 15px;
+}
+
+
+button:not(#logout) {
+  background-color: #476042;
+  /* margin: 16px; */
+  border: 2px;
+  padding: 1%;
+  color: white;
+  font-weight: bold;
+  transition: background-color .1s;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:not(#logout):hover {
+  background-color: #3486eb;
+}
 
 
 ol, #logout {
@@ -28,7 +106,7 @@ body, html {
   border: 0px solid #eee;
   margin-left: auto;
   margin-right: auto;
-  padding: 0;
+  padding: 20px;
   line-height: 1.5em;
 }
 #banner {
@@ -48,7 +126,6 @@ header {
   flex-wrap: wrap;
   position: -webkit-sticky;
   position: sticky;
-  top: 0;
 }
 
 nav ul {
@@ -64,6 +141,10 @@ nav ul {
   letter-spacing: 3px;
   color: #fff;
   background: #476042;
+  flex-wrap: wrap;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
   }
   #navlist li {
   list-style: none;
@@ -93,85 +174,7 @@ nav ul {
   background:#6A9662;
   }
 
-a {
-    text-decoration: none;
-    color: #F17C0B;
-    background-color: #fff;
-    }
-a:hover, #logout:hover {
-    text-decoration:underline;
-    color: #666;
-    background-color:#fff;
-    }
 
-header a, #logout {
-    text-decoration: none;
-    color: #fff;
-    background-color: #6A9662;
-}
-
-header a:hover, #logout:hover {
-  color: #fff;
-  background-color: #476042;
-}
-
-header h5 {
-padding-top: 5px;
-}
-
-header h5 a {
-  font-weight: bold;
-  font-size: 36px;
-  margin: 0;
-  background-color: #6A9662;
-  color: #fff;
-}
-
-header h5 a:hover {
-  background-color: #6A9662
-}
-
-header nav {
-  display: flex;
-  align-items: center;
-}
-header nav ul {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    list-style: none;
-    padding-right: 20px;
-}
-
-
-header nav ul li a, #logout {
-    padding: 10px 15px;
-    font-weight: lighter;
-    font-size: 1.55vw;
-}
-
-header nav ul li a:hover, #logout:hover {
-    border-radius: 15px;
-}
-
-  
-button:not(#logout) {
-    background-color: #476042;
-    /* margin: 16px; */
-    border: 2px;
-    padding: 1%;
-    color: white;
-    font-weight: bold;
-    transition: background-color .1s;
-    cursor: pointer;
-    border-radius: 5px;
-  }
-  
-button:not(#logout):hover {
-    background-color: #3486eb;
-  }
-  
 h1 {
     font-size: 200%;
     letter-spacing: 5px;
@@ -179,8 +182,9 @@ h1 {
     background: #fff;
     }
 h2 {
-    font-size: 130%;
+    font-size: 140%;
     text-transform: uppercase;
+    text-align: center;
     letter-spacing: 10px;
     color:#476042;
     background: #fff;
@@ -193,12 +197,12 @@ h3 {
     background: #6A9662;
     }
 h4 {
-    padding: 5px;
-    text-transform: uppercase;
-    font-size: 110%;
-    color:#fff;
-    background: #F17C0B;
-    }  
+  font-size: 110%;
+  text-transform: uppercase;
+  letter-spacing: 8px;
+  color:#476042;
+  background: #fff;
+  }
 
 .post-list {
     list-style-type: none;
@@ -266,28 +270,29 @@ h4 {
     
             /* MAIN CONTENT */
     #content {
-    padding: 0 20px 0 20px;
-    margin-left: 400px;
-    margin-right: 60px;
+    padding: 20px;
+    margin-left: 380px;
+    margin-right: 40px;
     border-left: 1px dashed #333;
     color: #555;
+
     /* background-color: #fff; */
     }
     
     /* POSTS  */
- .post {
+.post {
     /* margin-bottom: 8%; */
     line-height: 150%;
     font-style: italic;
-    padding: 0;
+    padding: 10px;
     margin: 0;
   }
 
-  .post-body {
+.post-body {
     font-style: normal;
   }
   
-  .post .title span {
+.post .title span {
     font-style: normal;
     font-size: 120%;
     color: #476042;
@@ -297,6 +302,7 @@ h4 {
     display: block;
     margin: -1.5% 0 2% 0;
   }
+  
   
   .upvote-btn {
     background-color: #197d0f;
@@ -355,6 +361,8 @@ h4 {
 
 #post-body {
   width: 100%;
+  padding-bottom: 20px;
+  margin: 0;
 }
 
   /* .new-post input, .new-post textarea {
@@ -431,7 +439,7 @@ h4 {
 		/* LEFT SIDEBAR */
 #sidebar-a {
   float: left;
-  width: 400px;
+  width: 360px;
   margin-right: 5px;
   margin-left: 5px; 
   padding: 5px;
@@ -448,11 +456,13 @@ h4 {
     color: #fff;
     position:fixed;bottom:0;left:0;right:0;height:30px;
     }
+    
     footer a {
     text-decoration: none;
     color: #fff;
     background-color:#476042;
     }
+
     footer  a:hover {
     color: #fff;
     background-color:#476042;
