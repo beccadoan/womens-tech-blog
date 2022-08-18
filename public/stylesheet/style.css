@@ -492,6 +492,13 @@ h5 {
       border-radius: 0px;
     }
 
+    .homepage-post-body {
+      overflow: hidden;
+      display: -webkit-box;
+     -webkit-line-clamp: 3; /* Limit to 3 lines */
+     -webkit-box-orient: vertical;
+    }
+
 /* MEDIA QUERY FOR SMALLER DESKTOP SCREENS AND SMALLER */
 
 @media screen and (max-width:980px) {
