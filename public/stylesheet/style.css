@@ -203,6 +203,15 @@ h4 {
   color:#476042;
   background: #fff;
   }
+h5 {
+    font-size: 160%;
+    text-transform: uppercase;
+    text-align: left;
+    padding-left: 12px;
+    letter-spacing: 8px;
+    color:#F17C0B;
+    background: #fff;
+  }
 
 .post-list {
     list-style-type: none;
