@@ -1,30 +1,40 @@
 * {
     box-sizing: border-box;
   }
+  body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0px;
+    text-align: left;
+    font: 100% arial, tahoma, "Trebuchet MS", verdana, arial, verdana, sans-serif;
+}
 
+ol, .dropbtn, #logout {
+  all: unset;
+}
 main {
   padding: 20px;
   margin-bottom: 20px;
 }
 
-a {
+a:not(h5) {
   text-decoration: none;
   color: #F17C0B;
   background-color: #fff;
   }
-a:hover, #logout:hover {
+a:hover {
   text-decoration:underline;
   color: #666;
   background-color:#fff;
   }
 
-header a, #logout {
+header a{
   text-decoration: none;
   color: #fff;
   background-color: #6A9662;
 }
 
-header a:hover, #logout:hover {
+header a:hover {
 color: #fff;
 background-color: #476042;
 }
@@ -59,44 +69,14 @@ header nav ul {
 }
 
 
-header nav ul li a, #logout {
+header nav ul li a, #logout, .dropbtn {
   padding: 10px 15px;
   font-weight: lighter;
   font-size: 1.55vw;
 }
 
-header nav ul li a:hover, #logout:hover {
+header nav ul li a:hover, #logout:hover, .dropbtn:hover {
   border-radius: 15px;
-}
-
-
-button:not(#logout) {
-  background-color: #476042;
-  /* margin: 16px; */
-  border: 2px;
-  padding: 1%;
-  color: white;
-  font-weight: bold;
-  transition: background-color .1s;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-button:not(#logout):hover {
-  background-color: #3486eb;
-}
-
-
-ol, #logout, .dropbtn {
-  all: unset;
-}
-
-body, html {
-    height: 100%;
-    margin: 0;
-    padding: 0px;
-    text-align: left;
-    font: 100% arial, tahoma, "Trebuchet MS", verdana, arial, verdana, sans-serif;
 }
 
 #container {
@@ -108,13 +88,6 @@ body, html {
   margin-right: auto;
   padding: 20px;
   line-height: 1.5em;
-}
-#banner {
-  height: 175px;
-  padding: 0;
-  margin-bottom: 20px;
-  background: rgb(190, 215, 173) ;
-  color: #333;
 }
 
 header {
@@ -152,21 +125,21 @@ nav ul {
   margin: 0;
   display: inline;
   }
-  #navlist li a, .dropdown {
+  #navlist li a, .dropbtn, #logout {
   padding: 5px .75em;
   margin: 0;
   color: #fff;
   background: #476042;
   text-decoration: none;
   }
-  #navlist li a:link { color: #fff;
+  #navlist li a:link, .dropbtn:link, #logout:link { color: #fff;
   background: #476042;
   }
-  #navlist li a:visited {
+  #navlist li a:visited, .dropbtn:visited, #logout:visited {
   color: #fff;
   background: #476042;
   }
-  #navlist li a:hover {
+  #navlist li a:hover, .dropbtn:hover, #logout:hover {
   color: #000;
   background: #6A9662;
   }
@@ -174,69 +147,6 @@ nav ul {
   color: #fff;
   background:#6A9662;
   }
-
-
-a {
-    text-decoration: none;
-    color: #F17C0B;
-    background-color: #fff;
-    }
-a:hover, #logout:hover, .dropbtn:hover {
-    text-decoration:underline;
-    color: #666;
-    background-color:#fff;
-    }
-
-header a, #logout, .dropbtn {
-    text-decoration: none;
-    color: #fff;
-    background-color: #6A9662;
-}
-
-header a:hover, #logout:hover, .dropbtn:hover {
-  color: #fff;
-  background-color: #476042;
-}
-
-header h5 {
-padding-top: 5px;
-}
-
-header h5 a {
-  font-weight: bold;
-  font-size: 36px;
-  margin: 0;
-  background-color: #6A9662;
-  color: #fff;
-}
-
-header h5 a:hover {
-  background-color: #6A9662
-}
-
-header nav {
-  display: flex;
-  align-items: center;
-}
-header nav ul {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    list-style: none;
-    padding-right: 20px;
-}
-
-
-header nav ul li a, #logout, .dropbtn {
-    padding: 10px 15px;
-    font-weight: lighter;
-    font-size: 1.55vw;
-}
-
-header nav ul li a:hover, #logout:hover, .dropbtn:hover {
-    border-radius: 15px;
-}
 
 .dropdown .dropbtn {
   float: left;
@@ -266,7 +176,6 @@ header nav ul li a:hover, #logout:hover, .dropbtn:hover {
   
 button:not(#logout):not(.dropbtn) {
     background-color: #476042;
-    /* margin: 16px; */
     border: 2px;
     padding: 1%;
     color: white;
@@ -277,7 +186,7 @@ button:not(#logout):not(.dropbtn) {
   }
   
 button:not(#logout):not(.dropbtn):hover {
-    background-color: #3486eb;
+    background-color: #6A9662;
   }
   
 
@@ -316,7 +225,6 @@ h5 {
     padding-left: 12px;
     letter-spacing: 8px;
     color:#F17C0B;
-    background: #fff;
   }
 
 .post-list {
@@ -352,18 +260,7 @@ h5 {
   form > div {
     margin-bottom: 2%;
   }
-/*   
-  form label {
-    display: block;
-  } */
   
-.wrapper {
-    width: 100%;
-    min-height: 100%;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-  }  
     
             /* LEFT MENU */
     .menu ul li {
@@ -480,10 +377,6 @@ h5 {
   margin: 0;
 }
 
-  /* .new-post input, .new-post textarea {
-    width: 80vw;
-  } */
-
   .new-post-title {
     text-align: center;
   }
@@ -587,227 +480,24 @@ h5 {
     color: #fff;
     background-color:#476042;
     }
+    .dropbtn, #logout {
+      font-size: 16px;
+      font: 100% arial, tahoma, "Trebuchet MS", verdana, arial, verdana, sans-serif;
 
-
-    
-            /* LINKS */
-    a {
-    text-decoration: none;
-    color: #F17C0B;
-    background-color: #fff;
     }
-    a:hover {
-    text-decoration:underline;
-    color: #666;
-    background-color:#fff;
-    }
-   
-            /* IMAGE PROPERTIES
-    .border {
-    padding: 10px;
-    margin: 10px;
-    border: 1px solid #476042;
-    }
-    .imgleft {
-    float: left;
-    border: 1px solid #90b905;
-    margin: 5px 10px 10px 15px;
-    padding: 5px;
-    }
-    
-          */
 
-/* * {
-    box-sizing: border-box;
-  }
-  
-  body, html {
-    height: 100%;
-    padding: 0;
-    margin: 0;
-    font-family: sans-serif;
-    color: #333;
-  }
-  
-  a {
-    text-decoration: none;
-    color: #225ca3;
-    font-weight: bold;
-    transition: color .1s;
-  }
-  
-  a:hover {
-    color: #3486eb;
-  }
-  
-  button {
-    background-color: #225ca3;
-    border: 0;
-    padding: 1%;
-    color: white;
-    font-weight: bold;
-    transition: background-color .1s;
-    cursor: pointer;
-    border-radius: 5px;
-  }
-  
-  button:hover {
-    background-color: #3486eb;
-  }
-  
-  .post-list {
-    margin: 0;
-    padding: 0;
-  }
-  
-  textarea, input {
-    padding: .5%;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-  }
-  
-  textarea:focus, input:focus {
-    outline: none;
-    border: 1px solid #3486eb;
-  }
-  
-  textarea {
-    min-width: 40%;
-    min-height: 100px;
-  }
-  
-  form > div {
-    margin-bottom: 2%;
-  }
-  
-  form label {
-    display: block;
-  }
-  
-  .wrapper {
-    width: 100%;
-    min-height: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  header {
-    border-bottom: 1px solid #ccc;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 1%;
-  }
-  
-  header h1 {
-    font-size: 1em;
-  }
-  
-  main {
-    flex: 1;
-    padding: 2% 4%;
-  }
-  
-  .btn-no-style {
-    background: none;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    text-decoration: none;
-    color: #225ca3;
-    font-size: 100%;
-    font-weight: bold;
-    transition: color .1s;
-    margin-left: 16px;
-  }
-  
-  .btn-no-style:hover {
-    background: none;
-    color: #3486eb;
-  }
-  
-  .delete-post-btn {
-    background-color: #d41414;
-  }
-  
-  .delete-post-btn:hover {
-    background-color: #ff643d;
-  }
-  
-  .post {
-    margin-bottom: 2%;
-    line-height: 150%;
-  }
-  
-  .post .title span {
-    font-style: italic;
-    font-size: 90%;
-    color: #7d7d7d;
-  }
-  
-  .edit-link {
-    display: block;
-    margin: -1.5% 0 2% 0;
-  }
-  
-  .upvote-btn {
-    background-color: #197d0f;
-    transition: background-color .1s;
-  }
-  
-  .upvote-btn:hover {
-    background-color: #1f9c13;
-  }
-  
-  .comment-form {
-    margin-bottom: 5%;
-  }
-  
-  .comment {
-    padding: 1%;
-    margin-bottom: 1%;
-  }
-  
-  .comment:nth-child(odd) {
-    background-color: #fff5eb;
-  }
-  
-  .comment .meta {
-    font-size: 90%;
-    margin-bottom: .5%;
-    opacity: .6;
-  }
-  
-  .new-post-form input {
-    width: 300px;
-  }
-  
-  .edit-post-form {
-    margin-bottom: 5%;
-  }
-  
-  footer {
-    border-top: 1px solid #ccc;
-    display: flex;
-    justify-content: center;
-    padding: 1%;
-    font-size: 110%;
-  } */
-
-
+    .dropbtn:hover, #logout:hover {
+      background-color: #6A9662;
+      border-radius: 0px;
+    }
 
 /* MEDIA QUERY FOR SMALLER DESKTOP SCREENS AND SMALLER */
 
 @media screen and (max-width:980px) {
 
+
   header h5 a {
       font-size: 25px;
-  }
-
-  header nav ul li a,  #logout, .dropbtn {
-      font-size: 20px;
   }
 
   header {
@@ -819,9 +509,21 @@ h5 {
   margin-left: 50px;
   margin-right: 50px;
 }
+
+#sidebar-a {
+  width: 0px;
+  display: none;
+  visibility: hidden;
+}
+
+#content {
+  margin-left: 0;
+}
 }                  
 
 @media screen and (max-width: 575px) {   
+
+
   header {
     padding-bottom: 0;
     justify-content: center;
@@ -831,16 +533,6 @@ h5 {
 header h1 {
     width: 100%;
     text-align: center;
-}
-
-header nav ul {
-    margin-top: 20px;
-    width: 100%;
-    justify-content: center;
-}
-
-header nav ul li a, #logout, .dropbtn {
-    font-size: 19px;
 }
 
 #submit-post {
